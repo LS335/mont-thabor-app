@@ -1,0 +1,34 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react react-dom react-router-dom styled-components
+
+PATH: 
+  C:\Program Files\ImageMagick-6.9.11-Q16-HDRI;C:\Python38\Scripts\;C:\Python38\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\ProgramData\chocolatey\bin;C:\Program Files\PostgreSQL\12\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Ruby27-x64\bin;C:\Users\sator\AppData\Local\Microsoft\WindowsApps;C:\Users\sator\go\bin;C:\Users\sator\gobin;;C:\Users\sator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\sator\AppData\Local\Yarn\bin;C:\Program Files\heroku\bin;C:\Users\sator\AppData\Local\Microsoft\WindowsApps;C:\Users\sator\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  14.17.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26)
+
+npm manifest: 
+  {
+    "name": "mont-thabor-app",
+    "version": "0.0.0",
+    "description": "schedule management",
+    "main": "index.js",
+    "author": "K Itoh",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
