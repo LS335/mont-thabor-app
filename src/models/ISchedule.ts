@@ -1,9 +1,10 @@
 import { ISystem } from './ISystem';
+import { Dayjs } from 'dayjs';
 
 export interface ISchedule {
   id: string;
   employeeId: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: Dayjs;
+  endDate: Dayjs;
   system: ISystem;
 }
