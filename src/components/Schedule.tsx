@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -7,7 +7,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
 import Container from '@material-ui/core/Container';
@@ -15,9 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Controller, useForm } from 'react-hook-form';
 import { IEmployee } from '../models/IEmployee';
 import { ISchedule } from '../models/ISchedule';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { DateTimePicker } from '@material-ui/pickers';
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 
 const dummyEmployee: IEmployee[] = [
   {
@@ -86,10 +84,6 @@ export const Schedule: React.FC = () => {
     defaultValues: initSchedule,
     mode: 'onBlur',
   });
-  const [date, setDate] = useState<Dayjs | null>(dayjs());
-  const onDateChange = useCallback((date: MaterialUiPickersDate) => {
-    setDate(date);
-  }, []);
 
   const [employees] = useState<IEmployee[]>(dummyEmployee);
   const employeesMenuItem = useMemo(() => {
@@ -124,17 +118,35 @@ export const Schedule: React.FC = () => {
           </FormControl>
           <Grid container spacing={3}>
             <Grid item md={6}>
-              <DateTimePicker
-                value={date}
-                onChange={onDateChange}
-                label="出勤日時"
-                format="YYYY/MM/DD HH:mm"
-                ampm={false}
-                minutesStep={30}
+              <Controller
+                control={control}
+                name="startDate"
+                rules={{ required: true }}
+                render={({ field: { onChange, value } }) => (
+                  <DateTimePicker
+                    value={value}
+                    onChange={onChange}
+                    format="YYYY/MM/DD HH:mm"
+                    ampm={false}
+                    minutesStep={30}
+                  />
+                )}
               />
             </Grid>
             <Grid item md={6}>
-              <TextField></TextField>
+              <Controller
+                control={control}
+                name="endDate"
+                rules={{ required: true }}
+                render={({ field: { onChange, value } }) => (
+                  <DateTimePicker
+                    value={value}
+                    onChange={onChange}
+                    ampm={false}
+                    minutesStep={30}
+                  />
+                )}
+              />
             </Grid>
           </Grid>
           <Grid item xs={6}>
