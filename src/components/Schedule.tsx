@@ -21,16 +21,19 @@ const dummyEmployee: IEmployee[] = [
   {
     id: '001',
     name: '佐藤',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     system: {} as any,
   },
   {
     id: '002',
     name: '伊藤',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     system: {} as any,
   },
   {
     id: '003',
     name: '加藤',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     system: {} as any,
   },
 ];
