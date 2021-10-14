@@ -7,7 +7,7 @@ import { ScheduleBar } from './ScheduleBar';
 
 type Props = JSX.IntrinsicElements['div'] & {
   employee: IEmployee;
-  schedule: ISchedule[];
+  schedules: ISchedule[];
   cellWidth: number;
   backgroundColor: Property.BackgroundColor;
 };
@@ -25,7 +25,7 @@ const useStyles = makeStyles<
 }));
 
 export const EmployeeLane: React.FC<Props> = (props) => {
-  const { employee, schedule, cellWidth, backgroundColor, ...elementAttr } =
+  const { employee, schedules, cellWidth, backgroundColor, ...elementAttr } =
     props;
   const styles = useStyles({ backgroundColor });
 
@@ -38,7 +38,7 @@ export const EmployeeLane: React.FC<Props> = (props) => {
   }, []);
 
   const bars = useMemo(() => {
-    return schedule.map((r) => {
+    return schedules.map((r) => {
       return (
         <ScheduleBar
           key={r.id}
@@ -50,7 +50,7 @@ export const EmployeeLane: React.FC<Props> = (props) => {
         />
       );
     });
-  }, [schedule, backgroundColor, cellWidth]);
+  }, [schedules, backgroundColor, cellWidth]);
   return (
     <div {...elementAttr}>
       {bars}
